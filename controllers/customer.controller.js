@@ -14,3 +14,65 @@ exports.findAll = (req, res) => {
         })
     })
 }
+
+exports.create = (req, res ) => {
+    const c = new customer(req.body)
+
+    c.save().then(data => {
+        res.json(data)
+    }).catch(err => {
+        return res.status(500).json({
+            msg:"ERROR HAPPEND : "+ err.message
+        })
+    })
+
+}
+
+exports.findById = (req, res ) => {
+    customer.findById(req.params.customerTd).then(data =>{
+        if(!data){
+            return res.status(404).json({
+                msg: "Record Not Found: " + req.params.customerId
+
+            })
+        }
+        res.json(data)
+    }).catch(err => {
+        return res.status(500).json({
+            msg:"ERROR HAPPEND : "+ err.message
+        })
+    })
+
+}
+
+exports.update = (req, res) => {
+    customer.findByIdAndUpdate(req.params.customerId, {$set: req.body}, {new: true})
+    .then(data => {
+        if(!data){
+            return res.status(404).json({
+                msg: "Not Found RecordPass: " + req.params.customerId
+            })
+        }
+        res.json(data)
+    }).catch(err => {
+        return res.status(500).json({
+            msg:"ERROR HAPPEND : "+ err.message
+        })
+    })
+}
+
+exports.delete = (req, res) => {
+    customer.findByIdAndDelete(req.params.customerId)
+    .then(data => {
+        if(!data){
+            return res.status(404).json({
+                msg: "Not Found RecordPass: " + req.params.customerId
+            })
+        }
+        res.json({ msg: "Data deleted!!!"})
+    }).catch(err => {
+        return res.status(500).json({
+            msg:"ERROR HAPPEND : "+ err.message
+        })
+    })
+}

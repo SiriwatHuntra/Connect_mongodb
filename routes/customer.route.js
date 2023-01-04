@@ -4,4 +4,10 @@ module.exports = (app) => {
     app.get('/', customer.index);
     app.get('/api/customer', customer.findAll);
 
+    app.post('/api/customer', customer.create)
+    app.post('/api/customer', customer.findById)
+    app.post('/api/customer', customer.update)
+    app.post('/api/customer', customer.delete)
+
+
 }
