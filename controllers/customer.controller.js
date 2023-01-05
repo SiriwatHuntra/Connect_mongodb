@@ -32,7 +32,7 @@ exports.findById = (req, res ) => {
     customer.findById(req.params.customerTd).then(data =>{
         if(!data){
             return res.status(404).json({
-                msg: "Record Not Found: " + req.params.customerId
+                msg: "Record Not Found CODE: " + req.params.customerId
 
             })
         }
@@ -50,7 +50,7 @@ exports.update = (req, res) => {
     .then(data => {
         if(!data){
             return res.status(404).json({
-                msg: "Not Found RecordPass: " + req.params.customerId
+                msg: "Not Found RecordCode: " + req.params.customerId
             })
         }
         res.json(data)

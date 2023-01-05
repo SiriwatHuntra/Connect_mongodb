@@ -16,7 +16,7 @@ app.use(express.urlencoded({
 mongoose.Promise = global.Promise;
 mongoose.connect(dbConfig.url)
     .then(() => {
-        Customer.deleteMany({}, (err)=> {
+        Customer({}, (err)=> {
             if (err){
                 process.exit();
             }
