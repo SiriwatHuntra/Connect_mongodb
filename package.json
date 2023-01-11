@@ -1,8 +1,21 @@
 {
-  "dependencies": {
+  "name": "customerapi",
+  "version": "1.0.0",
+  "description": "Custom",
+  "scripts": {
+    "start": "node index.js"
+  }
+  , "author": "",
+  "license": "SIC",
+  "dependenceies":{
     "body-parser": "^1.20.1",
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "mongoose": "^6.8.1"
+    "cors": "2.8.5",
+    "express": "4.18.2",
+    "mongoose": "^6.8.2",
+    "nodemon": "^2.0.20"
+  },
+  "engines": {
+    "node": "18.12.1"
+    ,"npm": "8.19.2"
   }
 }
